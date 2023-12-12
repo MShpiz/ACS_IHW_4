@@ -215,15 +215,17 @@ int main()
 {
     // получаем файл для вывода
     fout.open(stoi(argv[1]));
-    
+
+    // узнаем будет ли ввод данных из файла
     from_file = stoi(argv[2]);
     
-    if (from_file == 1) {
+    if (from_file == 1) { // если ввод из файла получаем данные из файла
         fin.open(argv[3]);
         fin >> time_first >> time_second;
+        fin.close()
         
     } else {
-        time_first = stoi(argv[3]);
+        time_first = stoi(argv[3]); // иначе из аргументов
         time_second = stoi(argv[4]);
     }
     
@@ -270,5 +272,6 @@ int main()
     // показываем результат работы
     PrintField();
 
+    fout.close()
     return 0;
 }
