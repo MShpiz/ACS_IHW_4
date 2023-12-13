@@ -1,0 +1,43 @@
+Garden before works
+0 0 0 0 0 0 -1 0 
+0 -1 -1 0 0 0 0 -1 
+0 -1 -1 -1 0 0 0 0 
+0 0 0 0 0 0 0 0 
+-1 0 0 -1 -1 0 0 0 
+-1 0 0 0 -1 0 0 -1 
+-1 -1 -1 0 0 0 0 -1 
+0 0 0 0 -1 0 -1 -1 
+Second gardener moved to cell 6 7
+Second gardener moved to cell 5 7
+First gardener finnised working in cell 0 0
+First gardener moved to cell 0 1
+Second gardener moved to cell 4 7
+First gardener finnised working in cell 0 1
+First gardener moved to cell 0 2
+First gardener finnised working in cell 0 2
+First gardener moved to cell 0 3
+Second gardener finnised working in cell 4 7
+Second gardener moved to cell 3 7
+First gardener finnised working in cell 0 3
+First gardener moved to cell 0 4
+Second gardener finnised working in cell 3 7
+Second gardener moved to cell 2 7
+First gardener finnised working in cell 0 4
+First gardener moved to cell 0 5
+First gardener finnised working in cell 0 5
+First gardener moved to cell 0 6
+First gardener moved to cell 0 7
+Second gardener finnised working in cell 2 7
+Second gardener moved to cell 1 7
+First gardener finnised working in cell 0 7
+First gardener sees Second gardener in next cell and waits
+Gardeners can not move
+Garden after gardeners left
+1 1 1 1 1 1 -1 1 
+0 -1 -1 0 0 0 0 -1 
+0 -1 -1 -1 0 0 0 1 
+0 0 0 0 0 0 0 1 
+-1 0 0 -1 -1 0 0 1 
+-1 0 0 0 -1 0 0 -1 
+-1 -1 -1 0 0 0 0 -1 
+0 0 0 0 -1 0 -1 -1 
