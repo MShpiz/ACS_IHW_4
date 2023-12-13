@@ -1,0 +1,16 @@
+Garden before works
+0 -1 0 
+0 0 0 
+0 0 0 
+Second gardener finnised working in cell 2 2
+Second gardener moved to cell 1 2
+First gardener finnised working in cell 0 0
+First gardener moved to cell 0 1
+First gardener moved to cell 0 2
+Second gardener finnised working in cell 1 2
+Second gardener sees First gardener in next cell and waits
+Gardeners can not move
+Garden after gardeners left
+1 -1 0 
+0 0 1 
+0 0 1 
