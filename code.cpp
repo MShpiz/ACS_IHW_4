@@ -27,7 +27,7 @@ void FillField() {
     // инициализация генератора случайных чисел
     std::random_device random_device;
     mt19937 generator(random_device());
-    uniform_int_distribution<> distribution(1, 10);
+    uniform_int_distribution<> distribution(1, 100);
     // задаём случайные размеры сада тк в условии про них ничего не сказано
     n = distribution(generator);
     m = distribution(generator);
