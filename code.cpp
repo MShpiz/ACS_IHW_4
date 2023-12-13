@@ -27,7 +27,7 @@ void FillField() {
     // инициализация генератора случайных чисел
     std::random_device random_device;
     mt19937 generator(random_device());
-    uniform_int_distribution<> distribution(1, 100);
+    uniform_int_distribution<> distribution(1, 10);
     // задаём случайные размеры сада тк в условии про них ничего не сказано
     n = distribution(generator);
     m = distribution(generator);
@@ -36,7 +36,7 @@ void FillField() {
     uniform_int_distribution<> distribution2(0, m*n);
     
     // набрасываем в сад камней пока они будут занимать не меньше 10% от площади сада
-    while(rocks - m*n/3 < m*n/10) {
+    while(m*n/3 - rocks > m*n*9/10) {
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < m; j++) {
                 if (field[i][j] == 0 && rocks > 0 && distribution2(generator) < m*n/4) {
@@ -45,6 +45,7 @@ void FillField() {
                 } else {
                     field[i][j] = 0;
                 }
+                
             }
         }
     }
@@ -210,11 +211,11 @@ void PrintField() {
     }
 }
 
-//int main(int argc, char* argv[])
-int main()
+int main(int argc, char* argv[])
+//int main()
 {
     // получаем файл для вывода
-    fout.open(stoi(argv[1]));
+    fout.open(argv[1]);
 
     // узнаем будет ли ввод данных из файла
     from_file = stoi(argv[2]);
@@ -222,7 +223,7 @@ int main()
     if (from_file == 1) { // если ввод из файла получаем данные из файла
         fin.open(argv[3]);
         fin >> time_first >> time_second;
-        fin.close()
+        fin.close();
         
     } else {
         time_first = stoi(argv[3]); // иначе из аргументов
@@ -232,10 +233,12 @@ int main()
     time_first = max(time_first , 2);
     time_second = max(time_second, 2);
     
+    
     //cin >> time_first >> time_second; // для online gdb
     cout << "Garden before works" << endl;
     fout << "Garden before works" << endl;
     FillField();    // зполняем поле (сад) камнями
+    PrintField();
     
     // выставляем позиции садовникам
     pos_first.first = 0;
@@ -244,7 +247,6 @@ int main()
     pos_second.first = n-1;
     pos_second.second = m-1;
     
-    PrintField(); // выводим начальное состояние поля (сада)
     
      pthread_mutex_init(&mutex, NULL) ; //инициализация двоичного семафора
     //идентификаторы для дочерних потоков
@@ -265,13 +267,17 @@ int main()
     // иначе они закончили работать в саду
     if (!gardenersSeeEachOther) {
         cout << "Gardeners finnished working successfully" << endl;
+        fout << "Gardeners finnished working successfully" << endl;
     } else {
         cout << "Gardeners can not move" << endl;
+        fout << "Gardeners can not move" << endl;
     }
     
     // показываем результат работы
+    cout << "Garden after gardeners left" << endl;
+    fout << "Garden after gardeners left" << endl;
     PrintField();
 
-    fout.close()
+    fout.close();
     return 0;
 }
