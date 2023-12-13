@@ -27,7 +27,7 @@ void FillField() {
     // инициализация генератора случайных чисел
     std::random_device random_device;
     mt19937 generator(random_device());
-    uniform_int_distribution<> distribution(1, 10);
+    uniform_int_distribution<> distribution(1, 100);
     // задаём случайные размеры сада тк в условии про них ничего не сказано
     n = distribution(generator);
     m = distribution(generator);
@@ -36,7 +36,7 @@ void FillField() {
     uniform_int_distribution<> distribution2(0, m*n);
     
     // набрасываем в сад камней пока они будут занимать не меньше 10% от площади сада
-    while(m*n/3 - rocks > m*n*9/10) {
+    while(rocks > m*n/10) {
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < m; j++) {
                 if (field[i][j] == 0 && rocks > 0 && distribution2(generator) < m*n/4) {
@@ -175,6 +175,11 @@ void* func(void *param) {
     int p=*(int *)param ;  //номер садовника
     bool move = true;   // садовник может передвигаться дальше
     bool see = true;    // садовники не видят друг друга в своей следующей клетке и не могут идти дальше
+    
+    if (pos_first == pos_second) { // вырожденный случай - сад состоит из одной клетки, садовники встретились и разбежались
+        see = false;
+        return nullptr;
+    }
     
     while (move && see) {
         // в зависимости от параметра двигаем соответствующего садовника
